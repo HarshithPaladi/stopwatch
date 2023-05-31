@@ -17,7 +17,7 @@ function StopWatchComponent() {
 		if (timerOn) {
 			const timer = setInterval(() => {
 				setCurrentTime(Date.now() - startTime);
-			}, 50);
+			}, 25);
 
 			return () => clearInterval(timer);
 		}
