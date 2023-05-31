@@ -6,7 +6,6 @@ import {
 	faStop,
 	faRedo,
 } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function StopWatchComponent() {
 	const [time, setTime] = React.useState(0);
