@@ -1,0 +1,22 @@
+.stopwatch__time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.stopwatch__text {
+    transition: 0.2s;
+}
+
+.stopwatch__buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.stopwatch__button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
