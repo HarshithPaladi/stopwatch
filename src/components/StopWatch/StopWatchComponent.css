@@ -11,6 +11,13 @@
     padding: 0.5rem;
     font-size: calc(1rem + 10vw);
 }
+
+.stopwatch__lap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 .ms{
     opacity: 0.5;
 }
@@ -20,16 +27,17 @@
     align-items: flex-end;
 } */
 
-.stopwatch__buttons {
+/* .stopwatch__buttons {
     margin: 1.5rem;
     text-align: center;
-}
+} */
 
 .stopwatch__button {
-    margin: calc(0.5rem + 0.5vw);
-    padding: calc(1rem + 0.5vw);
+    margin: calc(0.5rem);
+    padding: calc(1rem);
     font-size: calc(1rem + 2.5vw);
     opacity: 0.9;
+    border-radius: 50%;
 }
 
 .stopwatch__button:hover {

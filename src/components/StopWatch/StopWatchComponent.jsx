@@ -6,12 +6,14 @@ import {
 	faPause,
 	faStop,
 	faRedo,
+	faFlag,
 } from "@fortawesome/free-solid-svg-icons";
 
 function StopWatchComponent() {
 	const [startTime, setStartTime] = useState(0);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [timerOn, setTimerOn] = useState(false);
+	const [laps, setLaps] = useState([]);
 
 	useEffect(() => {
 		if (timerOn) {
@@ -35,11 +37,21 @@ function StopWatchComponent() {
 	const stopTimer = () => {
 		setTimerOn(false);
 		setCurrentTime(0);
+		resetLaps();
 	};
 
 	const resetTimer = () => {
 		setStartTime(Date.now());
 		setCurrentTime(0);
+		resetLaps();
+	};
+
+	const lapTimer = () => {
+		setLaps([...laps, currentTime]);
+	};
+
+	const resetLaps = () => {
+		setLaps([]);
 	};
 
 	return (
@@ -81,6 +93,9 @@ function StopWatchComponent() {
 										<button className="stopwatch__button" onClick={stopTimer}>
 											<FontAwesomeIcon icon={faStop} />
 										</button>
+										<button className="stopwatch__button" onClick={lapTimer}>
+											<FontAwesomeIcon icon={faFlag} />
+										</button>
 									</Fragment>
 								)}
 								{!timerOn && currentTime > 0 && (
@@ -93,6 +108,28 @@ function StopWatchComponent() {
 										</button>
 									</Fragment>
 								)}
+							</div>
+							<div className="stopwatch__laps">
+								{laps.length > 0 && <h3>Laps</h3>}
+								{laps.map((lap, index) => {
+									return (
+										<Fragment>
+											<div className="stopwatch__lap" key={index}>
+												<span className="">
+													{("0" + Math.floor((lap / 60000) % 60)).slice(-2)}
+												</span>
+												<span className="">:</span>
+												<span className="">
+													{("0" + Math.floor((lap / 1000) % 60)).slice(-2)}
+												</span>
+												<span className="">.</span>
+												<span className="ms">
+													{("0" + Math.floor((lap % 1000) / 10)).slice(-2)}
+												</span>
+											</div>
+										</Fragment>
+									);
+								})}
 							</div>
 						</div>
 					</div>
